@@ -75,7 +75,7 @@ export default function Home() {
           {notFound ? "No hay esse video" : null}
         </main >
         <footer className="row-start-3">
-          <span>Tenemos <Link href="/palabras">{words.length} palabras</Link> registradas.</span>
+          <span>Tenemos <Link href="/palabras"><span style={{ color: 'blue' }}>{words.length} palabras</span></Link> registradas.</span>
         </footer>
       </div >
     </>
