@@ -276,7 +276,7 @@
 
 "@types/vimeo__player@^2.10.0":
   version "2.18.3"
-  resolved "https://nexus.appfire.com/repository/appfire-npm/@types/vimeo__player/-/vimeo__player-2.18.3.tgz#585ccafd483304561c26897d48aa7695f7b36ed7"
+  resolved "https://registry.yarnpkg.com/@types/vimeo__player/-/vimeo__player-2.18.3.tgz#585ccafd483304561c26897d48aa7695f7b36ed7"
   integrity sha512-IzSzb6doT4I4uAnBHa+mBCiNtK7iAllEJjtpkX0sKY6/s1Vi+aX1134IAiPgiyFlMvFab/oZQpSeccK4r0/T2A==
 
 "@typescript-eslint/eslint-plugin@^5.4.2 || ^6.0.0 || ^7.0.0 || ^8.0.0":
@@ -362,7 +362,7 @@
 
 "@u-wave/react-vimeo@^0.9.11":
   version "0.9.11"
-  resolved "https://nexus.appfire.com/repository/appfire-npm/@u-wave/react-vimeo/-/react-vimeo-0.9.11.tgz#2e253988bf48b03506f6b7c1becbdd12bee712fd"
+  resolved "https://registry.yarnpkg.com/@u-wave/react-vimeo/-/react-vimeo-0.9.11.tgz#2e253988bf48b03506f6b7c1becbdd12bee712fd"
   integrity sha512-4WEfkYaJHhgxRusQvrA6CmRVS91ZA1SCX/qWDBRpG2akLEfhv1QvDwV15YX++Dh2QArzf+jdWPygSxKgQxvsmg==
   dependencies:
     "@types/react" "^17.0.0 || ^18.0.0"
@@ -377,7 +377,7 @@
 
 "@vimeo/player@^2.16.4":
   version "2.24.0"
-  resolved "https://nexus.appfire.com/repository/appfire-npm/@vimeo/player/-/player-2.24.0.tgz#ccc2e64f78c46548c4dc952ccf572dfa5428aac4"
+  resolved "https://registry.yarnpkg.com/@vimeo/player/-/player-2.24.0.tgz#ccc2e64f78c46548c4dc952ccf572dfa5428aac4"
   integrity sha512-oIpucg40ijdV1hGvAwHZitgbzSB/FFl1NbU82IHasG9e4EHNRYqJLetQjPk9oxMgeR06Pt/xB2wne/3jqKtLUg==
   dependencies:
     native-promise-only "0.8.1"
@@ -1939,7 +1939,7 @@ nanoid@^3.3.6, nanoid@^3.3.7:
 
 native-promise-only@0.8.1:
   version "0.8.1"
-  resolved "https://nexus.appfire.com/repository/appfire-npm/native-promise-only/-/native-promise-only-0.8.1.tgz#20a318c30cb45f71fe7adfbf7b21c99c1472ef11"
+  resolved "https://registry.yarnpkg.com/native-promise-only/-/native-promise-only-0.8.1.tgz#20a318c30cb45f71fe7adfbf7b21c99c1472ef11"
   integrity sha512-zkVhZUA3y8mbz652WrL5x0fB0ehrBkulWT3TomAQ9iDtyXZvzKeEA6GPxAItBYeNYl5yngKRX612qHOhvMkDeg==
 
 natural-compare@^1.4.0:
@@ -2795,7 +2795,7 @@ util-deprecate@^1.0.2:
 
 weakmap-polyfill@2.0.4:
   version "2.0.4"
-  resolved "https://nexus.appfire.com/repository/appfire-npm/weakmap-polyfill/-/weakmap-polyfill-2.0.4.tgz#bcc301e4c8eb4eda3e406f08f1a691093e407884"
+  resolved "https://registry.yarnpkg.com/weakmap-polyfill/-/weakmap-polyfill-2.0.4.tgz#bcc301e4c8eb4eda3e406f08f1a691093e407884"
   integrity sha512-ZzxBf288iALJseijWelmECm/1x7ZwQn3sMYIkDr2VvZp7r6SEKuT8D0O9Wiq6L9Nl5mazrOMcmiZE/2NCenaxw==
 
 which-boxed-primitive@^1.0.2:
