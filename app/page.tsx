@@ -22,10 +22,12 @@ export default function Home() {
   }, [setSearchTerm])
 
   const onSubmit = useCallback(() => {
-    const word = words.find(word => word.description.toLowerCase().includes(searchTerm))
+    const word = searchTerm && words.find(word => word.description.toLowerCase().includes(searchTerm.toLowerCase()))
     if (word) {
       setCurrentWord(word)
+      setNotFound(false)
     } else {
+      setCurrentWord(undefined)
       setNotFound(true)
     }
   }, [words, searchTerm])
@@ -36,17 +38,26 @@ export default function Home() {
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <h1>Dictionario español - lenguage de señas paraguaya</h1>
         <div className="flex w-full max-w-sm items-center space-x-2">
-          <Input type="text" placeholder="Buscar..." onChange={onChangeSearchTerm} />
+          <Input type="text" placeholder="Buscar..." onChange={onChangeSearchTerm} onKeyPress={e => {
+            if (e.key === 'Enter') {
+              onSubmit();
+            }
+          }} />
           <Button onClick={onSubmit}>Buscar</Button>
         </div>
-        {currentWord ? <iframe
-          className="w-full aspect-video self-stretch md:min-h-96"
-          src={`https://www.youtube.com/embed/${currentWord.videoId}`}
-          frameBorder="0"
-          title="Product Overview Video"
-          aria-hidden="true"
-        /> : null}
+        {currentWord ?
+          <iframe
+            className="w-full aspect-video self-stretch md:min-h-96"
+            // src={`https://www.youtube.com/embed/${currentWord.videoId}`}
+            src={`https://player.vimeo.com/video/${currentWord.videoId}?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`}
+            frameBorder="0"
+            title="Product Overview Video"
+            aria-hidden="true"
+          />
+          // <iframe className="w-full aspect-video self-stretch md:min-h-96" src={`https://player.vimeo.com/video/${currentWord.videoId}?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`} width="1280" height="720" frameBorder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="Lunes"></iframe>
+          : null}
         {notFound ? "No hay esse video" : null}
+
 
       </main>
     </div>
