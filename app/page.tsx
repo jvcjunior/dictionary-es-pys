@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { words } from "@/utils/consts";
 import { Word } from "@/types";
+import Vimeo from '@u-wave/react-vimeo';
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -48,18 +49,17 @@ export default function Home() {
         {currentWord ?
           <iframe
             className="w-full aspect-video self-stretch md:min-h-96"
-            // src={`https://www.youtube.com/embed/${currentWord.videoId}`}
             src={`https://player.vimeo.com/video/${currentWord.videoId}?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`}
             frameBorder="0"
             title="Product Overview Video"
             aria-hidden="true"
           />
-          // <iframe className="w-full aspect-video self-stretch md:min-h-96" src={`https://player.vimeo.com/video/${currentWord.videoId}?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`} width="1280" height="720" frameBorder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="Lunes"></iframe>
-          : null}
+          : null
+        }
         {notFound ? "No hay esse video" : null}
 
 
-      </main>
-    </div>
+      </main >
+    </div >
   );
 }
