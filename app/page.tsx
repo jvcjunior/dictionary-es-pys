@@ -51,28 +51,30 @@ export default function Home() {
             }} />
             <Button onClick={onSubmit}>Buscar</Button>
           </div>
-          {currentWords?.map(cw => <>
-            {cw.type === "vimeo" ?
-              <iframe
-                className="w-full aspect-video self-stretch md:min-h-96"
-                src={`https://player.vimeo.com/video/${cw.videoId}?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`}
-                frameBorder="0"
-                title="Product Overview Video"
-                aria-hidden="true"
-              />
-              : null
-            }
-            {cw.type === "youtube" ?
-              <iframe
-                className="w-full aspect-video self-stretch md:min-h-96"
-                src={`https://www.youtube.com/embed/${cw.videoId}`}
-                frameBorder="0"
-                title="Product Overview Video"
-                aria-hidden="true"
-              />
-              : null
-            }
-          </>)}
+          {currentWords?.map(cw =>
+            <div className="min-h-64 max-h-80" style={{ width: '100%', height: '320px' }}>
+              {cw.type === "vimeo" ?
+                <iframe
+                  className="w-full h-full aspect-video self-stretch"
+                  src={`https://player.vimeo.com/video/${cw.videoId}?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`}
+                  frameBorder="0"
+                  title="Product Overview Video"
+                  aria-hidden="true"
+                />
+                : null
+              }
+              {cw.type === "youtube" ?
+                <iframe
+                  className="w-full h-full aspect-video self-stretch"
+                  src={`https://www.youtube.com/embed/${cw.videoId}`}
+                  frameBorder="0"
+                  title="Product Overview Video"
+                  aria-hidden="true"
+                />
+                : null
+              }
+            </div>
+          )}
 
           {notFound ? "No hay esse video" : null}
         </main >
