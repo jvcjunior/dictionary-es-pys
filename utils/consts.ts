@@ -1610,8 +1610,103 @@ export const words = [
     type: "youtube",
   },
   {
+    description: "fingir",
+    videoId: "bFyNzfbKVVs",
+    type: "youtube",
+  },
+  {
     description: "fin",
     videoId: "MTZQyjvUdO4",
+    type: "youtube",
+  },
+  {
+    description: "final",
+    videoId: "e4AAsugy4DU",
+    type: "youtube",
+  },
+  {
+    description: "feo",
+    videoId: "ikMYEoSlC2g",
+    type: "youtube",
+  },
+  {
+    description: "fisioterapia",
+    videoId: "kTe3vop7fug",
+    type: "youtube",
+  },
+  {
+    description: "filtrar",
+    videoId: "qVOEjhN116Q",
+    type: "youtube",
+  },
+  {
+    description: "ferretería",
+    videoId: "n-GiKuOQQck",
+    type: "youtube",
+  },
+  {
+    description: "flaco",
+    videoId: "tSEaUe65V6Q",
+    type: "youtube",
+  },
+  {
+    description: "fiesta",
+    videoId: "wV63NvgKeqc",
+    type: "youtube",
+  },
+  {
+    description: "fiebre",
+    videoId: "x0ZO1nRVe-s",
+    type: "youtube",
+  },
+  {
+    description: "felicitar",
+    videoId: "7SvwRIiGF64",
+    type: "youtube",
+  },
+  {
+    description: "fallecer",
+    videoId: "WMVqORq2OJQ",
+    type: "youtube",
+  },
+  {
+    description: "flotar",
+    videoId: "2ZAFL_9hbRo",
+    type: "youtube",
+  },
+  {
+    description: "forma",
+    videoId: "7YvyT5i0ebg",
+    type: "youtube",
+  },
+  {
+    description: "flojo",
+    videoId: "9uWwioO1bGY",
+    type: "youtube",
+  },
+  {
+    description: "forzar",
+    videoId: "FqzQ1Va7Vog",
+    type: "youtube",
+  },
+  {
+    description: "flatulencia",
+    videoId: "I5pHyvVEBVg",
+    type: "youtube",
+  },
+  {
+    description: "foco",
+    videoId: "jlOgQZ29ZL0",
+    type: "youtube",
+  },
+  {
+    description: "flor",
+    videoId: "u4UAWQARpHE",
+    type: "youtube",
+  },
+  {
+    description: "frasco",
+    videoId: "7R8A97JfCQg",
     type: "youtube",
   },
   {
