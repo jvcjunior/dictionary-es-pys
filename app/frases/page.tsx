@@ -6,14 +6,17 @@ import { SelectedOptionWord, Word } from "@/types";
 import Link from "next/link";
 import MultipleSelector, { Option } from '@/components/ui/multi-selector';
 import { navigationMenuTriggerStyle, NavigationMenu, NavigationMenuItem, NavigationMenuList, NavigationMenuLink } from "@/components/ui/navigation-menu";
+import { getCanonicalString } from "@/utils/helpers";
+import { filter } from "lodash";
 
 export default function Home() {
+    const [currentOptions] = useState<SelectedOptionWord[]>(possibleWords.map((word, index) => ({ label: word.description, value: word.description, myId: word.videoId })));
     const [selectedOptions, setSelectedOptions] = useState<SelectedOptionWord[]>([]);
     const [currentWords, setCurrentWords] = useState<Word[]>();
     const [notFound, setNotFound] = useState(false);
 
     const onSubmit = useCallback(() => {
-        const optionsValues = selectedOptions.map((option) => option.value)
+        const optionsValues = selectedOptions.map((option) => option.myId)
         const words = possibleWords.filter(word => {
             return optionsValues.includes(word.videoId)
         });
@@ -30,8 +33,8 @@ export default function Home() {
         setSelectedOptions(options);
     }, [setSelectedOptions])
 
-    const OPTIONS = useMemo(() => {
-        return possibleWords.map(word => ({ label: word.description, value: word.videoId }))
+    const options = useMemo(() => {
+        return possibleWords.map((word, index) => ({ label: word.description, value: word.description, myId: word.videoId }))
     }, [possibleWords])
 
     return (
@@ -75,8 +78,10 @@ export default function Home() {
                     <h1 className="text-center text-2xl">Frases - Selecione multiplas palavras y busque su frase</h1>
                     <div className="flex w-full max-w-sm items-center space-x-2">
                         <MultipleSelector
-                            defaultOptions={OPTIONS}
+                            defaultOptions={options}
+                            options={currentOptions}
                             onChange={onSelect}
+                            // onSearchSync={onSearchSync}
                             placeholder="Selecione las palabras que desea buscar..."
                             emptyIndicator={
                                 <p className="text-center text-lg leading-10 text-gray-600 dark:text-gray-400">

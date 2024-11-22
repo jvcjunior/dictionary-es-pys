@@ -7,4 +7,5 @@ export type Word = {
 export type SelectedOptionWord = {
   label: string;
   value: string;
+  myId: string;
 };
