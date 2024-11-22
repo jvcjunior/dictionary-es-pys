@@ -1,36 +1,22 @@
 'use client'
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { words as possibleWords } from "@/utils/consts";
-import { Word } from "@/types";
-import Vimeo from '@u-wave/react-vimeo';
+import { SelectedOptionWord, Word } from "@/types";
 import Link from "next/link";
-import { getCanonicalString } from "@/utils/helpers";
 import MultipleSelector, { Option } from '@/components/ui/multi-selector';
 import { navigationMenuTriggerStyle, NavigationMenu, NavigationMenuItem, NavigationMenuList, NavigationMenuLink } from "@/components/ui/navigation-menu";
-import { words } from "@/utils/consts";
 
 export default function Home() {
-    const [searchTerm, setSearchTerm] = useState('');
+    const [selectedOptions, setSelectedOptions] = useState<SelectedOptionWord[]>([]);
     const [currentWords, setCurrentWords] = useState<Word[]>();
     const [notFound, setNotFound] = useState(false);
 
-    useEffect(() => {
-        if (!searchTerm) {
-            setCurrentWords(undefined);
-            setNotFound(false);
-        }
-    }, [searchTerm])
-
-    const onChangeSearchTerm = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchTerm(e.target.value);
-    }, [setSearchTerm])
-
     const onSubmit = useCallback(() => {
-        const words = searchTerm ? possibleWords.filter(word => {
-            return getCanonicalString(word.description).includes(getCanonicalString(searchTerm))
-        }) : [];
+        const optionsValues = selectedOptions.map((option) => option.value)
+        const words = possibleWords.filter(word => {
+            return optionsValues.includes(word.videoId)
+        });
         if (words?.length) {
             setCurrentWords(words)
             setNotFound(false)
@@ -38,25 +24,15 @@ export default function Home() {
             setCurrentWords(undefined)
             setNotFound(true)
         }
-    }, [possibleWords, searchTerm])
+    }, [possibleWords, selectedOptions])
 
-    // const OPTIONS: Option[] = [
-    //     { label: 'nextjs', value: 'Nextjs' },
-    //     { label: 'Vite', value: 'vite', disable: false },
-    //     { label: 'Nuxt', value: 'nuxt', disable: false },
-    //     { label: 'Vue', value: 'vue, disable: false', disable: false },
-    //     { label: 'Remix', value: 'remix' },
-    //     { label: 'Svelte', value: 'svelte', disable: false },
-    //     { label: 'Angular', value: 'angular', disable: false },
-    //     { label: 'Ember', value: 'ember', disable: false },
-    //     { label: 'React', value: 'react' },
-    //     { label: 'Gatsby', value: 'gatsby', disable: false },
-    //     { label: 'Astro', value: 'astro', disable: false },
-    // ];
+    const onSelect = useCallback((options: SelectedOptionWord[]) => {
+        setSelectedOptions(options);
+    }, [setSelectedOptions])
 
     const OPTIONS = useMemo(() => {
-        return words.map(word => ({ label: word.description, value: word.videoId }))
-    }, [words])
+        return possibleWords.map(word => ({ label: word.description, value: word.videoId }))
+    }, [possibleWords])
 
     return (
         <>
@@ -100,6 +76,7 @@ export default function Home() {
                     <div className="flex w-full max-w-sm items-center space-x-2">
                         <MultipleSelector
                             defaultOptions={OPTIONS}
+                            onChange={onSelect}
                             placeholder="Selecione las palabras que desea buscar..."
                             emptyIndicator={
                                 <p className="text-center text-lg leading-10 text-gray-600 dark:text-gray-400">

@@ -3,3 +3,8 @@ export type Word = {
   videoId: string;
   type: string;
 };
+
+export type SelectedOptionWord = {
+  label: string;
+  value: string;
+};
